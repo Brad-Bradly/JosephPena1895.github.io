@@ -26,8 +26,24 @@ var level01 = function (window) {
         game.setDebugMode(true);
 
         // BEGIN EDITING YOUR CODE HERE
-
-
+        function createSawBlade(x, y) {
+            
+            var hitZoneSize = 25;
+            var damageFromObstacle = 10;
+            var myObstacle = game.createObstacle(hitZoneSize,damageFromObstacle);
+            var obstacleImage = draw.bitmap('img/sawblade.png');
+            myObstacle.addChild(obstacleImage);   
+            game.addGameItem(myObstacle); 
+            myObstacle.x = x;
+            myObstacle.y = y;
+            obstacleImage.x = -25;
+            obstacleImage.y = -25;
+        }
+        createSawBlade(400, 390);
+        createSawBlade(500, 350);
+        createSawBlade(600, 325);
+        
+        
     }
 };
 

@@ -27,12 +27,7 @@ var background = function (window) {
         
         // ANIMATION VARIABLES HERE:
         var tree;
-        var buildings = [
-            {x: 1}
-            {x: 2}
-        
-        
-        ];
+        var buildings = [];
         var building;
      
         // called at the start of game and whenever the page is resized
@@ -43,7 +38,7 @@ var background = function (window) {
             // TODO: 2 - Part 2
             // this fills the background with a obnoxious yellow
             // you should modify this to suit your game
-            var backgroundFill = draw.rect(canvasWidth,393,'White'); //white to black.
+            var backgroundFill = draw.rect(canvasWidth,393,'White'); //white to black\\
             background.addChild(backgroundFill);
             
             // TODO: 3 - Add a moon and starfield

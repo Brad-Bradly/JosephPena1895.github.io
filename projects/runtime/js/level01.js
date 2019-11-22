@@ -39,9 +39,14 @@ var level01 = function (window) {
             obstacleImage.x = -25;
             obstacleImage.y = -25;
         }
-        createSawBlade(400, 390);
-        createSawBlade(500, 350);
-        createSawBlade(600, 325);
+        //createSawBlade(400, 390);
+        //createSawBlade(500, 350);
+        //createSawBlade(600, 325);
+        
+        for (var i=0; i < levelData.gameItems.length; i++) {
+            var gameItem = levelData.gameItems[i];
+            createSawBlade(gameItem.x, gameItem.y);
+        }
         
         
     }

@@ -16,9 +16,10 @@ var level01 = function (window) {
             number: 1, 
             speed: -3,
             gameItems: [
-                {type: 'sawblade',x:400,y:groundY},
-                {type: 'sawblade',x:600,y:groundY},
-                {type: 'sawblade',x:900,y:groundY}
+                {type: 'sawblade',x:700,y:285},
+                {type: 'sawblade',x:900,y:groundY},
+                {type: 'sawblade',x:1100,y:groundY},
+                {type: 'box',x:500,y:groundY}
             ]
         };
         window.levelData = levelData;
@@ -27,7 +28,6 @@ var level01 = function (window) {
 
         // BEGIN EDITING YOUR CODE HERE
         function createSawBlade(x, y) {
-            
             var hitZoneSize = 25;
             var damageFromObstacle = 10;
             var myObstacle = game.createObstacle(hitZoneSize,damageFromObstacle);
@@ -39,16 +39,32 @@ var level01 = function (window) {
             obstacleImage.x = -25;
             obstacleImage.y = -25;
         }
-        //createSawBlade(400, 390);
-        //createSawBlade(500, 350);
-        //createSawBlade(600, 325);
-        
-        for (var i=0; i < levelData.gameItems.length; i++) {
-            var gameItem = levelData.gameItems[i];
-            createSawBlade(gameItem.x, gameItem.y);
+
+        function createBox(x, y) {
+            var hitZoneSize = 30;
+            var damageFromObstacle = 5;
+            var myObstacle = game.createObstacle(hitZoneSize,damageFromObstacle);
+            var obstacleImage = draw.bitmap('img/box.png');
+            obstacleImage.scaleX = 0.25;
+            obstacleImage.scaleY = 0.25;
+            myObstacle.addChild(obstacleImage);   
+            game.addGameItem(myObstacle); 
+            myObstacle.x = x;
+            myObstacle.y = y;
+            obstacleImage.x = -33;
+            obstacleImage.y = -35;
         }
         
-        
+        for (var i=0; i < levelData.gameItems.length; i++) {
+            var gameItem = levelData.gameItems[i];            
+            
+            if ( 'sawblade' === gameItem.type){
+                createSawBlade(gameItem.x, gameItem.y)
+            }
+            else if ( 'box' === gameItem.type) {
+                createBox(gameItem.x, gameItem.y)
+            }
+        }
     }
 };
 
